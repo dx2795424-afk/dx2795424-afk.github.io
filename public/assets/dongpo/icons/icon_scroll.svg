@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none" stroke="#0B1118" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- scroll (long horizontal): rolled ends, faint ruled lines -->
+  <rect x="12" y="22" width="40" height="20" stroke="#0B1118" fill="#F2E6C9" />
+  <ellipse cx="12" cy="32" rx="3" ry="10" stroke="#0B1118" fill="#C89B5A" />
+  <ellipse cx="52" cy="32" rx="3" ry="10" stroke="#0B1118" fill="#C89B5A" />
+  <line x1="20" y1="28" x2="42" y2="28" opacity="0.55" />
+  <line x1="20" y1="36" x2="46" y2="36" opacity="0.55" />
+</svg>

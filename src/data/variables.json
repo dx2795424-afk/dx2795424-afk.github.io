@@ -1,0 +1,78 @@
+{
+  "initial": {
+    "qingfeng": 50,
+    "fenggu": 50,
+    "minsheng": 50,
+    "yanhuo": 50,
+    "qinyou": 50,
+    "mingsheng": 50
+  },
+  "ranges": {
+    "min": 0,
+    "max": 100
+  },
+  "labels": {
+    "qingfeng": {
+      "name": "清风账",
+      "description": "公私边界、拒礼、守规则",
+      "low": "清风账亏空",
+      "high": "清风账充盈"
+    },
+    "fenggu": {
+      "name": "风骨账",
+      "description": "风波和困境中是否守住人格",
+      "low": "风骨受损",
+      "high": "风骨挺立"
+    },
+    "minsheng": {
+      "name": "民生账",
+      "description": "是否关心百姓和公共责任",
+      "low": "疏离民生",
+      "high": "心系民生"
+    },
+    "yanhuo": {
+      "name": "烟火账",
+      "description": "是否能在困境中真实生活",
+      "low": "烟火暗淡",
+      "high": "烟火旺盛"
+    },
+    "qinyou": {
+      "name": "亲友账",
+      "description": "亲友承担的代价",
+      "low": "亲友负担轻",
+      "high": "亲友负担重"
+    },
+    "mingsheng": {
+      "name": "名声账",
+      "description": "才名和传播风险",
+      "low": "名声沉寂",
+      "high": "名声翻涌"
+    }
+  },
+  "feedback": {
+    "qingfeng": {
+      "positive": ["清风账添一笔。", "这次，账是清的。"],
+      "negative": ["清风账亏了一截。", "边界模糊了。"]
+    },
+    "fenggu": {
+      "positive": ["风骨账亮了一点。", "他没有把自己弄丢。"],
+      "negative": ["风骨账暗了一度。", "这次，他把自己丢了一部分。"]
+    },
+    "minsheng": {
+      "positive": ["民生账上有光。", "他还记得百姓。"],
+      "negative": ["民生账冷了一些。", "他暂时顾不上别人了。"]
+    },
+    "yanhuo": {
+      "positive": ["烟火账亮了一点。", "日子没有变轻，但锅里有了热气。"],
+      "negative": ["烟火账暗了一些。", "冷锅冷灶。"]
+    },
+    "qinyou": {
+      "positive": ["亲友账减轻了一点。"],
+      "negative": ["亲友账加重。", "子由又替你多扛了一段路。"]
+    },
+    "mingsheng": {
+      "positive": ["名声账翻涌。", "才华照亮了你，也把你推向风口。"],
+      "negative": ["名声账沉寂了一些。"]
+    }
+  }
+}

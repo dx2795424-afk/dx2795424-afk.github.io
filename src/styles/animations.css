@@ -1,0 +1,230 @@
+/* Loading animation */
+.loading-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--ink-black);
+}
+
+.ink-drop {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #4a4a4a, #1a1a1a);
+  animation: inkDrop 2s var(--ease-out) forwards;
+}
+
+.ink-ripple {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(232, 228, 223, 0.2);
+  animation: ripple 2s var(--ease-out) forwards;
+}
+
+@keyframes inkDrop {
+  0% { transform: scale(0); opacity: 0; }
+  30% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.8; }
+}
+
+@keyframes ripple {
+  0% { width: 60px; height: 60px; opacity: 0.8; }
+  100% { width: 300px; height: 300px; opacity: 0; }
+}
+
+/* Paper reveal */
+.paper-reveal {
+  background: var(--xuan-paper);
+  animation: paperReveal 1.5s var(--ease-out) forwards;
+}
+
+@keyframes paperReveal {
+  from { clip-path: inset(50% 30% 50% 30%); opacity: 0; }
+  to { clip-path: inset(0% 0% 0% 0%); opacity: 1; }
+}
+
+/* Scene transitions */
+.scene-enter {
+  animation: sceneEnter 0.6s var(--ease-out);
+}
+
+@keyframes sceneEnter {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.scene-exit {
+  animation: sceneExit 0.4s var(--ease-in-out);
+}
+
+@keyframes sceneExit {
+  to {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
+/* Choice buttons */
+.choice-btn {
+  opacity: 0;
+  animation: choiceFadeIn 0.5s var(--ease-out) forwards;
+}
+
+.choice-btn:nth-child(1) { animation-delay: 0.1s; }
+.choice-btn:nth-child(2) { animation-delay: 0.2s; }
+.choice-btn:nth-child(3) { animation-delay: 0.3s; }
+.choice-btn:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes choiceFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Seal stamp effect */
+.seal-stamp {
+  animation: sealStamp 0.6s var(--ease-out);
+}
+
+@keyframes sealStamp {
+  0% {
+    transform: scale(2) rotate(-15deg);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(0.95) rotate(2deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+/* Float animation for ambient elements */
+.float {
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Rain effect */
+.rain-drop {
+  position: absolute;
+  width: 2px;
+  height: 20px;
+  background: linear-gradient(to bottom, transparent, rgba(200, 200, 220, 0.4));
+  animation: rain 1s linear infinite;
+}
+
+@keyframes rain {
+  0% { transform: translateY(-20px); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(100vh); opacity: 0; }
+}
+
+/* Glow effect for interactive elements */
+.glow {
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from { filter: drop-shadow(0 0 5px rgba(184, 149, 108, 0.3)); }
+  to { filter: drop-shadow(0 0 15px rgba(184, 149, 108, 0.5)); }
+}
+
+/* Shatter effect for black crows */
+.shatter {
+  animation: shatter 1s var(--ease-out) forwards;
+}
+
+@keyframes shatter {
+  0% {
+    opacity: 1;
+    transform: translateX(0) rotate(0deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(var(--shatter-x, 50px)) rotate(var(--shatter-r, 45deg));
+  }
+}
+
+/* Steam/mist effect */
+.steam {
+  position: absolute;
+  width: 30px;
+  height: 50px;
+  background: radial-gradient(ellipse at bottom, rgba(255,255,255,0.15), transparent);
+  animation: steam 3s ease-out infinite;
+  opacity: 0;
+}
+
+@keyframes steam {
+  0% {
+    transform: translateY(0) scaleX(1);
+    opacity: 0;
+  }
+  20% { opacity: 0.6; }
+  100% {
+    transform: translateY(-80px) scaleX(2);
+    opacity: 0;
+  }
+}
+
+/* Moonlight beam */
+.moonlight {
+  animation: moonlight 3s var(--ease-in-out) forwards;
+}
+
+@keyframes moonlight {
+  0% {
+    opacity: 0;
+    clip-path: polygon(50% 0%, 50% 0%, 50% 100%, 50% 100%);
+  }
+  100% {
+    opacity: 1;
+    clip-path: polygon(40% 0%, 60% 0%, 70% 100%, 30% 100%);
+  }
+}
+
+/* Shake for danger */
+.shake {
+  animation: shake 0.5s var(--ease-out);
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-8px); }
+  40% { transform: translateX(8px); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(4px); }
+}
+
+/* Variable change indicator */
+.var-change {
+  animation: varChange 0.8s var(--ease-out);
+}
+
+@keyframes varChange {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); color: var(--vermillion); }
+  100% { transform: scale(1); }
+}

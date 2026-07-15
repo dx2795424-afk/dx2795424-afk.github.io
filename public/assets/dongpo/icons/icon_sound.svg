@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none" stroke="#0B1118" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- sound: speaker cone + radiating waves -->
+  <path d="M16 26 L26 26 L40 16 L40 48 L26 38 L16 38 Z" fill="#F2E6C9" />
+  <path d="M44 24 Q50 32 44 40" opacity="0.7" />
+  <path d="M48 20 Q56 32 48 44" opacity="0.5" />
+</svg>

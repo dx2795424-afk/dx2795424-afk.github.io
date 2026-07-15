@@ -1,0 +1,162 @@
+/* ==========================================================================
+ * responsive.css — V1.1 Mobile Responsive Adapter
+ * ==========================================================================
+ * Targets:
+ *   • iPhone SE      : 375 × 667
+ *   • iPhone 12/13/14: 390 × 844
+ *   • Landscape phone: 812 × 375 (i.e. width>=568 in landscape mode)
+ *
+ * Cascade order matters: this file should load AFTER mobile.css / theme.css
+ * so its media queries can override mobile breakpoints on tight viewports.
+ *
+ * Loaded via main.js (import './styles/responsive.css').
+ * ========================================================================== */
+
+
+/* ── Phase 1: Phones & narrow tablets (≤ 600px) ──────────────────────────
+ * Tighten padding on choice cards, lower font sizes, scale FAB modal to
+ * 96vw so it fits on iPhone SE (320 logical px) with breathing room. */
+@media (max-width: 600px) {
+  .choice-paper {
+    padding: 12px 14px;
+  }
+
+  .question-title {
+    font-size: 17px;
+    line-height: 1.45;
+  }
+
+  .choice-text {
+    font-size: 0.92rem;
+    line-height: 1.55;
+  }
+
+  .fab-modal {
+    width: 96vw;
+    max-width: 96vw;
+    padding: 16px 14px;
+    left: 2vw;
+    right: 2vw;
+  }
+
+  .overlay-topbar {
+    padding: 8px 4px;
+  }
+
+  .back-btn {
+    min-width: 56px;
+    min-height: 44px;       /* iOS tap-target ≥44pt */
+    padding: 8px 12px;
+  }
+
+  /* Ensure the continue button never overflows on a 320–360px viewport */
+  .btn-continue {
+    width: 100%;
+    max-width: 100%;
+    padding: 12px 14px;
+    font-size: 0.95rem;
+  }
+}
+
+
+/* ── Phase 2: iPhone SE / very narrow (≤ 380px) ─────────────────────────
+ * Shrink body text one notch further; feedback text also drops because
+ * post-choice feedback often runs long on SE. */
+@media (max-width: 380px) {
+  .choice-text {
+    font-size: 0.88rem;
+  }
+
+  .feedback-text {
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+
+  .question-title {
+    font-size: 16px;
+  }
+
+  .fab-modal {
+    padding: 14px 12px;
+  }
+
+  .overlay-topbar {
+    padding: 6px 2px;
+  }
+}
+
+
+/* ── Phase 3: Landscape phones (height ≤ 500px) ─────────────────────────
+ * Two responsibilities:
+ *   1. Neutralize the broken `mobile.css` landscape hack that rotates the
+ *      body 90deg + pushes it off-screen with `top: 100%` — that was
+ *      effectively unusable. We need real landscape rendering.
+ *   2. Switch choices list from vertical stack → 2-column row-wrap so the
+ *      user can see two choices side-by-side without scrolling on
+ *      landscape. Targets iPhone SE landscape (568×320) and similar.
+ *
+ * Note on `!important`: Vue scoped styles append `[data-v-xxx]` to each
+ * selector (e.g. `.choices-list[data-v-303d05d3]`), giving them higher
+ * specificity than our global media query. `!important` is required to
+ * override this and is appropriate here because landscape mode is an
+ * intentional layout override. */
+@media (orientation: landscape) and (max-height: 500px) {
+  /* Reset the broken body rotation/push-off-screen hack from mobile.css */
+  html, body {
+    transform: none !important;
+    transform-origin: initial !important;
+    width: 100% !important;
+    height: 100% !important;
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+  }
+
+  #app, #app-container {
+    width: 100% !important;
+    height: 100% !important;
+    transform: none !important;
+  }
+
+  .choices-list {
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: space-between;
+    gap: 6px;
+  }
+
+  .choice-paper {
+    flex: 0 0 calc(50% - 6px) !important;
+    box-sizing: border-box;
+    padding: 10px 12px;
+  }
+
+  /* Compact topbar + back button so the choice list gets the room */
+  .overlay-topbar {
+    padding: 4px 6px;
+    min-height: 36px;
+  }
+
+  .question-title {
+    font-size: 15px;
+    margin: 4px 0;
+  }
+
+  .feedback-text {
+    font-size: 0.82rem;
+  }
+}
+
+
+/* ── Optional: Very wide landscape tablets (≥ 900px) ────────────────────
+ * If the user rotates an iPad onto landscape, restore the desktop
+ * "centered card" treatment. Pure safety net — won't affect the
+ * primary mobile breakpoints above. */
+@media (min-width: 900px) and (max-height: 500px) {
+  .fab-modal {
+    width: min(70vw, 720px);
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+  }
+}

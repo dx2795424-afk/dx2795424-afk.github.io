@@ -1,0 +1,977 @@
+{
+  "scenes": [
+    {
+      "id": "S00",
+      "type": "loading",
+      "title": "加载中",
+      "atmosphere": "loading",
+      "content": "正在展开《东坡清风纪》……",
+      "autoAdvance": true,
+      "autoAdvanceDelay": 4000
+    },
+    {
+      "id": "S01",
+      "type": "home",
+      "title": "东坡清风纪",
+      "subtitle": "苏轼一生互动叙事游戏",
+      "tagline": "一生风雨，一本清账"
+    },
+    {
+      "id": "S02",
+      "type": "intro",
+      "title": "遗卷任务页",
+      "content": "《东坡清风纪》残页：眉山、京城、乌台、黄州、承天寺。",
+      "narrator": "你不是旁观者。你要修复这卷账。这本账不记他赚过多少钱，只记他在风雨里有没有把自己守清楚。",
+      "next": "S10",
+      "nextText": "翻到眉山"
+    },
+    {
+      "id": "S10",
+      "type": "scene",
+      "title": "眉山夜雨",
+      "atmosphere": "meishan",
+      "content": "眉山夜雨。瓦檐、灯火、远山。少年苏轼只是书案旁的剪影。",
+      "narrator": "眉山，冬夜。后来名满天下的苏轼，此时还只是一个少年。他还不知道，才华会照亮他，也会把他推向风暴。",
+      "next": "S11",
+      "nextText": "翻到下一页"
+    },
+    {
+      "id": "S11",
+      "type": "interactive",
+      "title": "书案三物",
+      "atmosphere": "meishan",
+      "content": "书案上有三件物品：书卷、砚台、小灯。",
+      "next": "S12",
+      "nextText": "去京城"
+    },
+    {
+      "id": "S12",
+      "type": "scene",
+      "title": "兄弟并行",
+      "atmosphere": "meishan",
+      "content": "两个少年剪影一前一后。画面中出现一封未写完的信，署名「子由」。",
+      "narrator": "他有一个弟弟，名叫苏辙，字子由。很多年后，这个名字会一次次出现在他的命运里。有些人陪你长大，也可能在风暴里替你扛下一部分重量。",
+      "factCard": {
+        "title": "史实：苏轼与苏辙",
+        "content": "苏轼出生于眉山，苏辙为其弟。少年家学、兄弟关系是苏轼人格形成的重要背景。"
+      },
+      "adaptationCard": {
+        "title": "改编说明",
+        "content": "本幕的雨夜、书案、灯火和兄弟剪影是电影化呈现，用于建立人物氛围，不对应某一条完整史实记录。"
+      },
+      "next": "S20",
+      "nextText": "去京城"
+    },
+    {
+      "id": "S20",
+      "type": "scene",
+      "title": "京城成名",
+      "atmosphere": "capital",
+      "content": "京城远景。纸页飞起，文字在空中闪烁。苏轼剪影站在光亮处，背后人群越来越多。",
+      "narrator": "他写得太好了。好到人人都看见他。可被看见，也意味着每一句话都会被保存、转述、判断。",
+      "next": "S21",
+      "nextText": "翻到下一页"
+    },
+    {
+      "id": "S21",
+      "type": "choice",
+      "title": "选择1：锋芒怎么用",
+      "atmosphere": "capital",
+      "question": "面对公共事务，你会让苏轼怎样表达？",
+      "choices": [
+        {
+          "id": "A",
+          "text": "有话直说，但尽量基于事实和责任",
+          "group": "expression",
+          "value": "responsible",
+          "variables": {
+            "fenggu": 10,
+            "minsheng": 5,
+            "mingsheng": 5
+          },
+          "feedback": "你让他说真话，也让他知道真话有重量。风骨不是乱撞，责任也不是沉默。"
+        },
+        {
+          "id": "B",
+          "text": "为了安全，只说所有人爱听的话",
+          "group": "expression",
+          "value": "safe_but_weak",
+          "variables": {
+            "fenggu": -10,
+            "mingsheng": -5
+          },
+          "feedback": "风暂时绕开了他。可一个总是只说漂亮话的人，会慢慢听不见自己的声音。"
+        },
+        {
+          "id": "C",
+          "text": "情绪上头，把锋芒全部写出去",
+          "group": "expression",
+          "value": "reckless",
+          "variables": {
+            "fenggu": 15,
+            "minsheng": 20,
+            "qinyou": 5
+          },
+          "feedback": "字落下去，像火星。照亮一瞬，也可能烧出一场风。"
+        },
+        {
+          "id": "D",
+          "text": "借公共议题扩大个人名声",
+          "group": "expression",
+          "value": "fame_first",
+          "variables": {
+            "mingsheng": 25,
+            "minsheng": -10
+          },
+          "feedback": "名声涨得很快。但账本提醒：如果公共议题只剩个人表演，真实会被挤到角落。"
+        }
+      ],
+      "next": "S22"
+    },
+    {
+      "id": "S22",
+      "type": "scene",
+      "title": "风暴变暗",
+      "atmosphere": "wutai",
+      "conditionalNarrator": {
+        "responsible": "即使字字有据，风暴也未必会放过一个太亮的人。",
+        "safe_but_weak": "你曾试着避开风。可时代的风，不会只吹向说话的人。",
+        "reckless": "那些锋利的字，没有停在纸上。它们被翻出，被剪开，被重新排列。",
+        "fame_first": "名声把他推得更高。高处的风，也更冷。"
+      },
+      "narrator": "文稿飞起。墨字变成黑鸦或黑色碎片。御史台门影压下。",
+      "next": "S23",
+      "nextText": "风暴来了"
+    },
+    {
+      "id": "S23",
+      "type": "scene",
+      "title": "乌台惊魂",
+      "atmosphere": "wutai",
+      "content": "牢门、烛火、脚步声。苏轼剪影被隔在门后。页面出现「危机值」。",
+      "narrator": "风暴终于落下。才华、名声、文字，忽然都成了证据。远处，一封信正在赶来。",
+      "next": "S24",
+      "nextText": "翻到下一页"
+    },
+    {
+      "id": "S24",
+      "type": "choice",
+      "title": "选择2：子由救援卡",
+      "atmosphere": "wutai",
+      "question": "这封来自子由的信，要怎么接？",
+      "choices": [
+        {
+          "id": "A",
+          "text": "接受救援，活下来后学会更谨慎地处理表达边界",
+          "group": "ziyou",
+          "value": "accepted_reflective",
+          "variables": {
+            "qingfeng": 5,
+            "fenggu": 10,
+            "qinyou": 15,
+            "mingsheng": -5
+          },
+          "feedback": "你接住了这封信。也接住了亲人替你扛下的一部分重量。风骨不是从此闭嘴。而是知道，真话也需要承担。"
+        },
+        {
+          "id": "B",
+          "text": "接受救援，但仍然觉得自己无需反思",
+          "group": "ziyou",
+          "value": "accepted_no_reflection",
+          "variables": {
+            "fenggu": 5,
+            "qinyou": 30,
+            "mingsheng": 10
+          },
+          "feedback": "危机暂时过去了。但账本没有变轻。一个人的锋芒，如果总由亲人替他收场，终会变成亏欠。"
+        },
+        {
+          "id": "C",
+          "text": "不愿连累子由，坚持自己承担到底",
+          "group": "ziyou",
+          "value": "refused",
+          "variables": {
+            "fenggu": 20,
+            "qinyou": -5,
+            "yanhuo": -5
+          },
+          "feedback": "你想独自承担。这样很硬，也很孤。可风暴不是一个人的事，亲人未必会因为你拒绝就真的置身事外。"
+        },
+        {
+          "id": "D",
+          "text": "想靠关系摆平一切",
+          "group": "ziyou",
+          "value": "relation_fix",
+          "variables": {
+            "qingfeng": -20,
+            "qinyou": 10,
+            "mingsheng": 10
+          },
+          "feedback": "你试图用关系对抗风暴。可如果一场危机只能靠另一张关系网解开，这本账就更乱了。"
+        }
+      ],
+      "next": "S25"
+    },
+    {
+      "id": "S25",
+      "type": "scene",
+      "title": "风暴之后",
+      "atmosphere": "huangzhou",
+      "conditionalNarrator": {
+        "accepted_reflective": "他想起子由那封信。有些话以后仍要说，但不能再把每一句都扔给风。",
+        "accepted_no_reflection": "他想起子由那封信。却还没有真正想明白，亏欠也会记账。",
+        "refused": "他没有回头。可越是不回头，背影越冷。",
+        "relation_fix": "他离开风暴，却没能完全离开关系的阴影。"
+      },
+      "content": "牢门打开。外面不是晴天，而是灰青色江水。地图上「黄州」二字亮起。",
+      "narrator": "他活下来了。但旧日的苏轼，已经不能原样走出去。风暴之前，还有一段路要走——密州。",
+      "next": "S26",
+      "nextText": "去密州"
+    },
+    {
+      "id": "S26",
+      "type": "scene",
+      "title": "密州入境",
+      "atmosphere": "mizhou",
+      "content": "密州。灰黄天空，干裂的田地。蝗虫飞过的影子遮住日光。",
+      "narrator": "这里是密州。他来的时候，蝗灾刚过，旱灾又来。粮仓空了，税还要收。他不只是一个诗人——他是一个要养活一方百姓的地方官。",
+      "next": "S27",
+      "nextText": "翻到下一页",
+      "act": 3,
+      "chapter": "第三幕：密州风云"
+    },
+    {
+      "id": "S27",
+      "type": "choice",
+      "title": "选择：治蝗与赈灾优先顺序",
+      "atmosphere": "mizhou",
+      "question": "蝗虫正在吞噬农田，粮仓有限，先救哪里？",
+      "choices": [
+        {
+          "id": "A",
+          "text": "先集中资源捕蝗，保住粮食",
+          "group": "governance",
+          "value": "governance_people_first",
+          "variables": {
+            "qingfeng": 10,
+            "minsheng": 15
+          },
+          "feedback": "你把蝗灾当作一场必须打赢的仗。粮是百姓的命，蝗是粮的敌人。这个顺序，账上没有亏。",
+          "warning": null,
+          "flags": {
+            "governance": "governance_people_first"
+          },
+          "effects": {
+            "minsheng": 15,
+            "fenggu": 10,
+            "mingsheng": -5
+          }
+        },
+        {
+          "id": "B",
+          "text": "报上级请求支援，同时把报告写得好看",
+          "group": "governance",
+          "value": "governance_face_engineering",
+          "variables": {
+            "qingfeng": -10,
+            "minsheng": -5,
+            "mingsheng": 15
+          },
+          "feedback": "报告写得好看了。可蝗虫不读文件，百姓的粮仓不会因为报告漂亮就多打几斤。",
+          "warning": "⚠️ 此选项呈现公私边界模糊风险，不代表苏轼真实行为。",
+          "flags": {
+            "governance": "governance_face_engineering"
+          },
+          "effects": {
+            "qingfeng": 5,
+            "mingsheng": 10,
+            "minsheng": -5
+          }
+        },
+        {
+          "id": "C",
+          "text": "把资源优先给认识的熟人",
+          "group": "governance",
+          "value": "governance_relation_favor",
+          "variables": {
+            "qingfeng": -20,
+            "minsheng": -10,
+            "mingsheng": 5
+          },
+          "feedback": "熟人先拿到了资源。公家的灾，私人的情——这笔账一开始就有了味道。",
+          "warning": "⚠️ 此选项呈现公私边界模糊风险，不代表苏轼真实行为。",
+          "flags": {
+            "governance": "governance_relation_favor"
+          },
+          "effects": {
+            "qingfeng": -20,
+            "mingsheng": 5,
+            "yanhuo": 5
+          }
+        },
+        {
+          "id": "D",
+          "text": "绕过正常程序，先快速灭火",
+          "group": "governance",
+          "value": "governance_bypass",
+          "variables": {
+            "qingfeng": -15,
+            "minsheng": 5,
+            "mingsheng": 10
+          },
+          "feedback": "绕过程序，火灭得快。可一旦绕过成了习惯，账本就再也立不起来。",
+          "warning": "⚠️ 此选项呈现公私边界模糊风险，不代表苏轼真实行为。",
+          "flags": {
+            "governance": "governance_bypass"
+          },
+          "effects": {
+            "qingfeng": -10,
+            "minsheng": 5,
+            "mingsheng": 10
+          }
+        }
+      ],
+      "next": "S28",
+      "factCard": {
+        "title": "史实：苏轼知密州与灾情",
+        "content": "苏轼于熙宁七年（1074）任密州太守。密州时期确实经历旱灾、蝗灾。苏轼在密州期间关注捕蝗、赈灾、税负等民生问题，有《答胡强仲书》等文字记录密州灾情与治理思路。"
+      },
+      "adaptationCard": {
+        "title": "关于密州选择的改编说明",
+        "content": "本题为游戏化情境，用于呈现地方治理中公私边界的真实复杂性。清风账污染选项为游戏化风险模拟，不代表苏轼真实做过资源倾斜、绕过程序等行为。"
+      },
+      "act": 3,
+      "chapter": "第三幕：密州风云"
+    },
+    {
+      "id": "S28",
+      "type": "choice",
+      "title": "选择：青苗钱与税负应对",
+      "atmosphere": "mizhou",
+      "question": "青苗钱和税负压在灾民身上。你要怎么处理？",
+      "choices": [
+        {
+          "id": "A",
+          "text": "如实上报灾情，为百姓请求减免",
+          "group": "governance",
+          "value": "governance_justice_speak",
+          "variables": {
+            "qingfeng": 15,
+            "minsheng": 20,
+            "mingsheng": -10,
+            "fenggu": 20
+          },
+          "feedback": "你把实话递了上去。减免不一定能批，但至少这道声音进了文件。风骨有时候就是一句话。",
+          "warning": null,
+          "flags": {
+            "governance": "governance_justice_speak"
+          },
+          "effects": {
+            "minsheng": 20,
+            "fenggu": 15,
+            "mingsheng": -10
+          }
+        },
+        {
+          "id": "B",
+          "text": "按政策执行，但尽量减轻百姓负担",
+          "group": "governance",
+          "value": "governance_soft_execute",
+          "variables": {
+            "qingfeng": 5,
+            "minsheng": 5,
+            "fenggu": -5
+          },
+          "feedback": "你在政策空间里找到了余地。不是最亮的路，但是最稳的。清风账上，有一笔是干净的。",
+          "warning": null,
+          "flags": {
+            "governance": "governance_soft_execute"
+          },
+          "effects": {
+            "qingfeng": 10,
+            "minsheng": 10,
+            "fenggu": 5
+          }
+        },
+        {
+          "id": "C",
+          "text": "完全照章执行，先保自己的政绩",
+          "group": "governance",
+          "value": "governance_full_execute",
+          "variables": {
+            "qingfeng": -5,
+            "minsheng": -10,
+            "mingsheng": 20
+          },
+          "feedback": "章是照了，可章下面的百姓没有声音。规矩是死的，人心是活的。",
+          "warning": "⚠️ 此选项呈现公私边界模糊风险，不代表苏轼真实行为。",
+          "flags": {
+            "governance": "governance_full_execute"
+          },
+          "effects": {
+            "qingfeng": 5,
+            "minsheng": -15,
+            "fenggu": -10,
+            "mingsheng": 5
+          }
+        },
+        {
+          "id": "D",
+          "text": "借为民请命之名扩大个人声望",
+          "group": "governance",
+          "value": "governance_fame_opportunism",
+          "variables": {
+            "qingfeng": -10,
+            "minsheng": 5,
+            "mingsheng": 25
+          },
+          "feedback": "你借百姓的苦给自己搭台。名声是涨了，可账本里，民生那一栏已经空了。",
+          "warning": "⚠️ 此选项呈现公私边界模糊风险，不代表苏轼真实行为。",
+          "flags": {
+            "governance": "governance_fame_opportunism"
+          },
+          "effects": {
+            "mingsheng": 20,
+            "minsheng": -10,
+            "qingfeng": -15
+          }
+        }
+      ],
+      "next": "S29",
+      "factCard": {
+        "title": "史实：青苗钱与密州税负",
+        "content": "青苗钱是宋代王安石变法中的重要政策，在地方实施时给灾民带来额外负担。苏轼在密州时期对青苗钱等新法持批评态度，认为其加重了百姓负担。熙宁七年密州确有旱灾，苏轼上书反映灾情。"
+      },
+      "adaptationCard": {
+        "title": "关于青苗钱选择的改编说明",
+        "content": "本题为游戏化情境选择题。选项呈现的是地方官员在执行政策时面临的真实张力：如实上报可能触怒朝廷，隐瞒灾情对不起百姓，游戏化选项用于呈现这些边界情况，不代表苏轼真实做过借名扩声等行为。"
+      },
+      "act": 3,
+      "chapter": "第三幕：密州风云"
+    },
+    {
+      "id": "S29",
+      "type": "choice",
+      "title": "选择：赈灾资源与人情请托",
+      "atmosphere": "mizhou",
+      "question": "地方旧识请求你把捕蝗赏米、赈灾工役名额优先分给自己人。你怎么处理？",
+      "choices": [
+        {
+          "id": "A",
+          "text": "核查情况，按公开标准分配",
+          "group": "governance",
+          "value": "governance_public_standard",
+          "variables": {
+            "qingfeng": 15,
+            "minsheng": 10
+          },
+          "feedback": "你没有把公家的米放进私人的情。标准是冷的，但它是唯一不亏的尺子。",
+          "warning": null,
+          "flags": {
+            "governance": "governance_public_standard"
+          },
+          "effects": {
+            "qingfeng": 20,
+            "minsheng": 15,
+            "mingsheng": -5
+          }
+        },
+        {
+          "id": "B",
+          "text": "熟人优先，资源倾斜",
+          "group": "governance",
+          "value": "governance_relation_priority",
+          "variables": {
+            "qingfeng": -15,
+            "minsheng": -5,
+            "mingsheng": 5,
+            "qinyou": 10
+          },
+          "feedback": "熟人拿到了更多。账上多了一笔说不清的人情债，也多了一个把柄。",
+          "warning": "⚠️ 此选项呈现公私边界模糊风险，不代表苏轼真实行为。",
+          "flags": {
+            "governance": "governance_relation_priority"
+          },
+          "effects": {
+            "qingfeng": -25,
+            "yanhuo": 5,
+            "mingsheng": 5
+          }
+        },
+        {
+          "id": "C",
+          "text": "一律拒绝，不做解释",
+          "group": "governance",
+          "value": "governance_strict_isolation",
+          "variables": {
+            "qingfeng": 5,
+            "minsheng": -10,
+            "mingsheng": -5,
+            "qinyou": -5
+          },
+          "feedback": "你把所有请托都挡了回去。边界守住了，可有些关系一旦切断，就再也接不回来。",
+          "warning": null,
+          "flags": {
+            "governance": "governance_strict_isolation"
+          },
+          "effects": {
+            "qingfeng": 5,
+            "minsheng": -10,
+            "yanhuo": -5
+          }
+        },
+        {
+          "id": "D",
+          "text": "借赈灾资源做人情",
+          "group": "governance",
+          "value": "governance_public_misuse",
+          "variables": {
+            "qingfeng": -25,
+            "minsheng": -10,
+            "mingsheng": 10
+          },
+          "feedback": "公家的粮进了私人的情。这不是人情，是账目上的糊涂账。一笔笔加起来，清风账就没了。",
+          "warning": "⚠️ 此选项呈现公私边界模糊风险，不代表苏轼真实行为。",
+          "dirty": true,
+          "flags": {
+            "governance": "governance_public_misuse"
+          },
+          "effects": {
+            "qingfeng": -30,
+            "mingsheng": 10,
+            "minsheng": -5
+          }
+        }
+      ],
+      "next": "S30",
+      "factCard": {
+        "title": "史实：密州赈灾与苏轼的民间立场",
+        "content": "苏轼在密州任职期间重视赈灾济民，反对在新法推行中加重百姓负担。其《上韩丞相论灾伤书》等文书记载了他对密州灾情的关注和对百姓生活的担忧。密州时期是苏轼从京城清谈走向地方实干的重要阶段。"
+      },
+      "adaptationCard": {
+        "title": "关于赈灾人情请托的改编说明",
+        "content": "本题为游戏化情境选择题，用于呈现地方官员面对人情请托时的公私边界挑战。⚠️ 污染选项（熟人优先、借公做人情等）是游戏机制，用来表现公款使用和人情交换的边界风险，不代表苏轼真实行为。"
+      },
+      "act": 3,
+      "chapter": "第三幕：密州风云"
+    },
+    {
+      "id": "S30",
+      "type": "scene",
+      "title": "风暴将至",
+      "atmosphere": "wutai",
+      "content": "密州的账还没算完，风暴已经从京城压过来。",
+      "narrator": "文字落在纸上，风暴落在人身上。他写的那些字，正在被人重新阅读、剪接、排列成罪证。",
+      "next": "S34",
+      "nextText": "风暴来了",
+      "act": 3,
+      "chapter": "第三幕：密州风云"
+    },
+    {
+      "id": "S34",
+      "type": "scene",
+      "title": "黄州靠岸",
+      "atmosphere": "huangzhou",
+      "content": "船靠岸。天空灰青，江岸荒冷。苏轼下船，衣角被风吹起。",
+      "narrator": "黄州不是一个景点。至少此刻不是。这里是坠落之后的地面。名声还在身后，日子已经落到脚边。",
+      "next": "S35",
+      "nextText": "翻到下一页",
+      "act": 4,
+      "chapter": "第四幕：黄州坠落"
+    },
+    {
+      "id": "S35",
+      "type": "budget",
+      "title": "黄州生活账本",
+      "atmosphere": "huangzhou",
+      "content": "账本摊开。项目：米、柴、肉、笔墨、家用、待客、公账。",
+      "narrator": "今日余额有限。可人还要吃饭。字还要写。日子还要往前过。",
+      "next": "S36",
+      "nextText": "先这样过一天",
+      "act": 4,
+      "chapter": "第四幕：黄州坠落"
+    },
+    {
+      "id": "S36",
+      "type": "choice",
+      "title": "选择3：村民送肉",
+      "atmosphere": "huangzhou",
+      "question": "面对村民送来的一块肉，你怎么处理？",
+      "choices": [
+        {
+          "id": "A",
+          "text": "确认没有请托和交换后收下，并回赠力所能及的小物",
+          "group": "meat",
+          "value": "clean_human_touch",
+          "variables": {
+            "qingfeng": 15,
+            "minsheng": 10,
+            "yanhuo": 10
+          },
+          "feedback": "你没有把所有人情都拒之门外，也没有让人情变成交易。清廉不是冷冰冰地隔绝人，而是把边界看清楚。"
+        },
+        {
+          "id": "B",
+          "text": "收下，并暗示以后可以常送",
+          "group": "meat",
+          "value": "human_debt",
+          "variables": {
+            "qingfeng": -20,
+            "yanhuo": 5,
+            "mingsheng": 5
+          },
+          "feedback": "肉还没下锅，账已经有味了。人情一旦被暗示成长期供给，就会从温暖变成风险。"
+        },
+        {
+          "id": "C",
+          "text": "一概拒绝，从此不和百姓来往",
+          "group": "meat",
+          "value": "isolated",
+          "variables": {
+            "qingfeng": 5,
+            "minsheng": -10,
+            "yanhuo": -5
+          },
+          "feedback": "你守住了安全，却也关上了一扇门。清廉不是拒绝所有关系，百姓也不是风险本身。"
+        },
+        {
+          "id": "D",
+          "text": "把它记到公账里，包装成公务接待",
+          "group": "meat",
+          "value": "confused_account",
+          "variables": {
+            "qingfeng": -30,
+            "minsheng": -5,
+            "yanhuo": 5
+          },
+          "feedback": "这笔账不能这样记。私人生活、公务支出、百姓人情，一旦混在一起，清风账就糊了。"
+        }
+      ],
+      "next": "S37",
+      "factCard": {
+        "title": "史实：苏轼与黄州百姓",
+        "content": "苏轼贬黄州期间与当地百姓有一定往来，留下了与百姓相关的生活记录。游戏中的「村民」形象用于呈现普通民间关系，非对应某一具体历史人物。"
+      },
+      "adaptationCard": {
+        "title": "关于村民送肉的改编说明",
+        "content": "「村民送肉」属于游戏情景改编，用来呈现普通人情与廉洁边界的关系，不对应某一条确定史实。游戏强调：清廉不是拒绝一切人情，而是识别人情是否附带公共交换。"
+      },
+      "act": 4,
+      "chapter": "第四幕：黄州坠落"
+    },
+    {
+      "id": "S37",
+      "type": "choice",
+      "title": "选择4：东坡肉的钱从哪来",
+      "atmosphere": "huangzhou",
+      "question": "这顿饭怎么做？",
+      "choices": [
+        {
+          "id": "A",
+          "text": "用自己的预算，少水慢火，把它认真做成一顿饭",
+          "group": "cook",
+          "value": "slow_stew",
+          "variables": {
+            "yanhuo": 20,
+            "fenggu": 10,
+            "qingfeng": 10
+          },
+          "feedback": "火不急，水要少。日子也一样，慢慢熬。你没有把困境熬成怨气，而是熬出了一点滋味。"
+        },
+        {
+          "id": "B",
+          "text": "为了面子大摆宴席，账先欠着",
+          "group": "cook",
+          "value": "face_spend",
+          "variables": {
+            "yanhuo": 5,
+            "qingfeng": -10,
+            "mingsheng": 10
+          },
+          "feedback": "体面不是靠欠账撑出来的。越是失意，越容易用排场遮住空虚。"
+        },
+        {
+          "id": "C",
+          "text": "借公务名义报销私人饮食",
+          "group": "cook",
+          "value": "public_misuse",
+          "variables": {
+            "qingfeng": -25,
+            "mingsheng": 5
+          },
+          "feedback": "这不是一顿饭的问题。这是边界的问题。私人生活一旦披上公务外衣，清风账就开始发霉。"
+        },
+        {
+          "id": "D",
+          "text": "情绪崩溃，什么都不做",
+          "group": "cook",
+          "value": "collapse",
+          "variables": {
+            "yanhuo": -20,
+            "fenggu": -10
+          },
+          "feedback": "黄州的冷没有放过你。但如果连一顿饭都不愿意认真做，命运就只剩下冷。"
+        }
+      ],
+      "next": "S38",
+      "factCard": {
+        "title": "史实：《猪肉颂》",
+        "content": "苏轼贬黄州期间留下《猪肉颂》，其中写到黄州猪肉价格低廉，并以通俗方式写烹肉方法。正式版需核查原文、作年和黄州生活背景。"
+      },
+      "adaptationCard": {
+        "title": "关于东坡肉预算的改编说明",
+        "content": "本题为游戏化情境选择题。「东坡肉」作为黄州符号在游戏中用来呈现烟火气与清风账之间的平衡，不代表苏轼在黄州真实发明了特定菜品。"
+      },
+      "act": 4,
+      "chapter": "第四幕：黄州坠落"
+    },
+    {
+      "id": "S38",
+      "type": "scene",
+      "title": "东坡初成",
+      "atmosphere": "huangzhou",
+      "conditionalNarrator": {
+        "slow_stew": "那一晚，锅里有肉，账上无亏。东坡不是突然诞生的。他是在一口小锅前，慢慢把自己从风暴里捞回来。",
+        "confused_account": "饭香起来了，账却不清。烟火气不是清廉的反面，糊涂账才是。",
+        "isolated": "你避开了一些风险，也避开了生活本身。黄州还在，东坡却还没有真正落地。"
+      },
+      "content": "黄州的日子在继续。",
+      "narrator": "黄州没有立刻治好他。但至少，日子开始有了一点热气。",
+      "next": "S39",
+      "nextText": "月亮升起来了",
+      "act": 4,
+      "chapter": "第四幕：黄州坠落"
+    },
+    {
+      "id": "S39",
+      "type": "scene",
+      "title": "月色入户",
+      "atmosphere": "chengtian",
+      "content": "黄州夜。苏轼屋内，门缝透入月光。整体冷白月光。",
+      "narrator": "夜深了。他解衣欲睡。月光却推门进来。",
+      "next": "S40",
+      "nextText": "去找一个还没睡的人",
+      "act": 4,
+      "chapter": "第四幕：黄州坠落"
+    },
+    {
+      "id": "S40",
+      "type": "explore",
+      "title": "夜游探索",
+      "atmosphere": "chengtian",
+      "content": "简化地图：苏轼屋舍 → 承天寺。",
+      "narrator": "念无与为乐者。",
+      "next": "S41",
+      "nextText": "翻到下一页",
+      "act": 4,
+      "chapter": "第四幕：黄州坠落"
+    },
+    {
+      "id": "S41",
+      "type": "choice",
+      "title": "选择5：怀民夜游",
+      "atmosphere": "chengtian",
+      "question": "找到怀民之后，你要怎么过这个夜晚？",
+      "choices": [
+        {
+          "id": "A",
+          "text": "与怀民步于中庭，把怨气交给月光",
+          "group": "huai",
+          "value": "moon_walk",
+          "variables": {
+            "fenggu": 20,
+            "yanhuo": 10,
+            "qinyou": 5
+          },
+          "feedback": "你没有改变贬谪的现实，但你保住了不沉下去的能力。今晚，风骨账亮了一点。"
+        },
+        {
+          "id": "B",
+          "text": "情绪上头，写一堆可能再次惹祸的话",
+          "group": "huai",
+          "value": "hot_words",
+          "variables": {
+            "mingsheng": 15,
+            "qinyou": 10,
+            "fenggu": 5
+          },
+          "feedback": "才华又开始发烫。可有些话一旦写出去，就会让风再次变硬。"
+        },
+        {
+          "id": "C",
+          "text": "闷在屋里，不再见任何人",
+          "group": "huai",
+          "value": "closed_self",
+          "variables": {
+            "fenggu": -10,
+            "yanhuo": -10,
+            "qinyou": -5
+          },
+          "feedback": "你避开了风险，也避开了月光。一个人如果把自己关得太久，风骨也会变冷。"
+        },
+        {
+          "id": "D",
+          "text": "借朋友关系求特殊照顾",
+          "group": "huai",
+          "value": "privilege_friend",
+          "variables": {
+            "qingfeng": -15,
+            "qinyou": 10
+          },
+          "feedback": "朋友不是特权通道。真正的知己，是陪你清醒，不是替你越界。"
+        }
+      ],
+      "next": "S42",
+      "factCard": {
+        "title": "史实：《记承天寺夜游》",
+        "content": "《记承天寺夜游》中写苏轼月夜寻张怀民，张怀民亦未寝，两人相与步于中庭。该文本是黄州时期苏轼心境的重要呈现。正式版需核查原文、时间和地点。"
+      },
+      "adaptationCard": {
+        "title": "关于怀民夜游的改编说明",
+        "content": "「怀民状态检测」「点击寻找怀民」是互动化改编，用来增强年轻玩家的参与感。原文的清冷意境和苏轼困境中的精神自守必须保留。"
+      },
+      "act": 4,
+      "chapter": "第四幕：黄州坠落"
+    },
+    {
+      "id": "S42",
+      "type": "scene",
+      "title": "月下批注",
+      "atmosphere": "chengtian",
+      "conditionalNarrator": {
+        "moon_walk": "怀民没有救他出黄州。但陪他走过了一个夜晚。有时候，不沉下去，就是一种风骨。",
+        "hot_words": "月光没有拦住他的锋芒。子由的信，似乎又在远处响了一声。",
+        "closed_self": "这个夜晚很安静。安静到像没有人来过。",
+        "privilege_friend": "你找到了朋友，却差点把朋友变成门路。"
+      },
+      "content": "月光照在账本上。",
+      "narrator": "承天寺这一页，合上了。下一站，杭州。",
+      "next": "S44",
+      "nextText": "再入杭州",
+      "act": 4,
+      "chapter": "第四幕：黄州坠落"
+    },
+    {
+      "id": "S43",
+      "type": "result",
+      "title": "临时结果页（黄州残页）",
+      "atmosphere": "result",
+      "next": null,
+      "act": 4,
+      "chapter": "第四幕：黄州坠落"
+    },
+    {
+      "id": "S44",
+      "type": "scene",
+      "title": "再入杭州",
+      "atmosphere": "hangzhou",
+      "next": "S45",
+      "nextText": "进入西湖治理",
+      "act": 5,
+      "chapter": "第五幕：再入杭州"
+    },
+    {
+      "id": "S45",
+      "type": "choice",
+      "title": "西湖治理选择",
+      "atmosphere": "hangzhou",
+      "next": "S46",
+      "nextText": "进入账目选择",
+      "act": 5,
+      "chapter": "第五幕：再入杭州"
+    },
+    {
+      "id": "S46",
+      "type": "choice",
+      "title": "工程账目选择",
+      "atmosphere": "hangzhou",
+      "next": "S47",
+      "nextText": "进入杭州小结",
+      "act": 5,
+      "chapter": "第五幕：再入杭州"
+    },
+    {
+      "id": "S47",
+      "type": "scene",
+      "title": "杭州小结",
+      "atmosphere": "hangzhou",
+      "next": "S50",
+      "nextText": "进入儋州",
+      "act": 5,
+      "chapter": "第五幕：再入杭州"
+    },
+    {
+      "id": "S50",
+      "type": "scene",
+      "title": "儋州天涯",
+      "atmosphere": "danzhou",
+      "next": "S51",
+      "nextText": "进入讲学选择",
+      "act": 6,
+      "chapter": "第六幕：儋州天涯"
+    },
+    {
+      "id": "S51",
+      "type": "choice",
+      "title": "讲学选择",
+      "atmosphere": "danzhou",
+      "next": "S52",
+      "nextText": "进入生活选择",
+      "act": 6,
+      "chapter": "第六幕：儋州天涯"
+    },
+    {
+      "id": "S52",
+      "type": "choice",
+      "title": "天涯生活选择",
+      "atmosphere": "danzhou",
+      "next": "S53",
+      "nextText": "进入唐佐选择",
+      "act": 6,
+      "chapter": "第六幕：儋州天涯"
+    },
+    {
+      "id": "S53",
+      "type": "choice",
+      "title": "姜唐佐求学",
+      "atmosphere": "danzhou",
+      "next": "S54",
+      "nextText": "进入儋州小结",
+      "act": 6,
+      "chapter": "第六幕：儋州天涯"
+    },
+    {
+      "id": "S54",
+      "type": "scene",
+      "title": "儋州小结",
+      "atmosphere": "danzhou",
+      "next": "S60",
+      "nextText": "进入清风结卷",
+      "act": 6,
+      "chapter": "第六幕：儋州天涯"
+    },
+    {
+      "id": "S60",
+      "type": "result",
+      "title": "清风结卷",
+      "atmosphere": "result",
+      "next": null,
+      "act": 6,
+      "chapter": "第六幕：儋州天涯"
+    },
+    {
+      "id": "S61",
+      "type": "share",
+      "title": "分享海报",
+      "atmosphere": "result",
+      "next": null
+    },
+    {
+      "id": "S62",
+      "type": "credits",
+      "title": "史实与改编说明",
+      "atmosphere": "home",
+      "next": null
+    }
+  ]
+}

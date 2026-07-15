@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none" stroke="#0B1118" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- calligraphy brush: handle + tip, with a single brushstroke -->
+  <line x1="40" y1="14" x2="24" y2="36" />
+  <line x1="40" y1="14" x2="48" y2="20" />
+  <!-- brush tip (tapered) -->
+  <path d="M24 36 L18 44 L28 40 Z" fill="#0B1118" />
+  <!-- a single curved ink brushstroke arc -->
+  <path d="M14 52 Q22 48 28 52 Q34 56 42 50" stroke="#A83232" opacity="0.85" stroke-width="2.6" fill="none" />
+</svg>

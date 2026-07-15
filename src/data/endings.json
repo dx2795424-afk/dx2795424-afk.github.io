@@ -1,0 +1,69 @@
+{
+  "endings": [
+    {
+      "id": "ziyou_tired",
+      "name": "子由太累了",
+      "priority": 1,
+      "conditions": [
+        { "type": "variable", "variable": "qinyou", "operator": ">=", "value": 80 },
+        { "type": "combo", "flags": ["accepted_no_reflection", "hot_words"] }
+      ],
+      "title": "子由太累了",
+      "content": "风暴过去了。但每一页背后，都有子由的影子。\n\n你一次次让苏轼撑过危机，也一次次让亲人替他多扛一段路。\n\n清风账本提醒：亲情不是无限救援系统。",
+      "visual": "cold_blue",
+      "seal": "倦"
+    },
+    {
+      "id": "confused_account",
+      "name": "糊涂账倾向",
+      "priority": 2,
+      "conditions": [
+        { "type": "flag", "flag": "flag_account_dirty" },
+        { "type": "combo", "variables": { "qingfeng": "<", "value": 45 }, "yanhuo": ">=", "value": 60 }
+      ],
+      "title": "糊涂账倾向",
+      "content": "你让黄州的锅热起来了，也让账本多了几处模糊。\n\n烟火气不是清廉的反面。糊涂账才是。",
+      "visual": "warm_grey",
+      "seal": "糊"
+    },
+    {
+      "id": "cold_moon",
+      "name": "月光很冷",
+      "priority": 3,
+      "conditions": [
+        { "type": "variable", "variable": "fenggu", "operator": "<", "value": 45 },
+        { "type": "variable", "variable": "yanhuo", "operator": "<", "value": 45 },
+        { "type": "flag", "flag": "flag_life_cold" }
+      ],
+      "title": "月光很冷",
+      "content": "你让苏轼避开了一些风险，也避开了很多生活。\n\n黄州的月光仍在，可他还没有真正走进去。",
+      "visual": "moon_white",
+      "seal": "寒"
+    },
+    {
+      "id": "qingfeng_born",
+      "name": "黄州清风初成",
+      "priority": 4,
+      "conditions": [
+        { "type": "variable", "variable": "qingfeng", "operator": ">=", "value": 70 },
+        { "type": "variable", "variable": "fenggu", "operator": ">=", "value": 65 },
+        { "type": "variable", "variable": "yanhuo", "operator": ">=", "value": 65 },
+        { "type": "variable", "variable": "qinyou", "operator": "<", "value": 75 }
+      ],
+      "title": "黄州清风初成",
+      "content": "你没有把苏轼玩成完美圣人。他仍会嘴馋，会疲惫，会在夜里找怀民。\n\n但这一路，他没有让账本糊掉。\n\n黄州的火慢慢烧着。东坡正在诞生。",
+      "visual": "warm_glow",
+      "seal": "成"
+    },
+    {
+      "id": "dongpo_landing",
+      "name": "东坡正在落地",
+      "priority": 5,
+      "conditions": [],
+      "title": "东坡正在落地",
+      "content": "黄州没有立刻治好他。但至少，日子开始有了一点热气。\n\n风还在吹。东坡正在落地。",
+      "visual": "neutral",
+      "seal": "待"
+    }
+  ]
+}
