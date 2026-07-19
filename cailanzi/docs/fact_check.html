@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>数据来源与事实核验表 - 菜篮子求生 v2</title>
+  <style>
+    body { font-family: 'Noto Sans SC', -apple-system, sans-serif; max-width: 920px; margin: 40px auto; padding: 0 20px; line-height: 1.7; color: #1a1a1a; background: #fdf8f0; }
+    h1 { color: #2a4a2a; border-bottom: 3px solid #72d572; padding-bottom: 8px; }
+    h2 { color: #2a4a2a; margin-top: 32px; }
+    h3 { color: #4a4a2a; margin-top: 24px; }
+    table { border-collapse: collapse; width: 100%; margin: 16px 0; }
+    th, td { border: 1px solid #ccc; padding: 8px 12px; text-align: left; vertical-align: top; }
+    th { background: #e8f0d8; font-weight: 700; }
+    code { background: #f0ead0; padding: 1px 6px; border-radius: 3px; font-family: 'Consolas', monospace; }
+    blockquote { border-left: 4px solid #72d572; padding: 8px 16px; background: #f0f8e8; margin: 16px 0; }
+    a { color: #2a4a2a; text-decoration: underline; }
+    .nav { background: #fff8e0; padding: 12px; border: 1px solid #e0c060; border-radius: 6px; margin-bottom: 24px; }
+    .nav a { margin-right: 16px; font-weight: 600; }
+    .type-A { color: #1a5d1a; font-weight: 700; }
+    .type-B { color: #4a4a8a; font-weight: 700; }
+    .type-C { color: #c0392b; font-weight: 700; }
+    .badge { display: inline-block; padding: 1px 6px; border-radius: 3px; font-size: 11px; margin-left: 4px; }
+    .badge-v2 { background: #f6edd1; color: #6b5b1a; }
+  </style>
+</head>
+<body>
+  <div class="nav">
+    <a href="./fact_check.html">数据来源与事实核验表</a>
+    <a href="./gameplay_parameters.html">游戏数值转译说明</a>
+    <a href="./source_registry.html">总来源登记表</a>
+    <span class="badge badge-v2">v2 事实体系统一版</span>
+  </div>
+
+  <h1>数据来源与事实核验表 <span class="badge badge-v2">v2</span></h1>
+  <p>本作品采用 <strong>A / B / C 三层分类</strong> 区分事实、机制和游戏化模拟数值。本版（v2 / data_integrity_cleanup_02）核心修正：<strong>C01-C06 语义校准</strong> + 新增 <strong>C12-C13 温室事实登记</strong>。</p>
+
+  <h2>一、A 类 真实事实 / 政策背景</h2>
+  <p>仅列政策名 + 发布机构 + 文号 + 官方链接，<strong>不嵌入</strong>政策的精确数字（产量、规模、损失率等）。</p>
+
+  <table>
+    <tr><th>source_id</th><th>来源</th><th>发布机构</th><th>文号</th></tr>
+    <tr><td>A01</td><td>《"菜篮子"市长负责制考核办法》</td><td>国务院办公厅</td><td>国办发〔2017〕1号</td></tr>
+    <tr><td>A02</td><td>《"十四五"冷链物流发展规划》</td><td>国务院办公厅印发</td><td>国办发〔2021〕46号</td></tr>
+    <tr><td>A03</td><td>《全国现代设施农业建设规划（2023—2030年）》</td><td>四部门（农业农村部 + 国家发改委 + 财政部 + 自然资源部）</td><td>—</td></tr>
+    <tr><td>A04</td><td>《国务院办公厅关于促进畜牧业高质量发展的意见》</td><td>国务院办公厅</td><td>国办发〔2020〕31号</td></tr>
+    <tr><td>A05</td><td>《数字农业农村发展规划（2019-2025年）》</td><td>农业农村部 + 中央网信办</td><td>—</td></tr>
+    <tr><td>A06</td><td>《中共中央 国务院关于锚定农业农村现代化 扎实推进乡村全面振兴的意见》（2026 中央一号文件）</td><td>中共中央、国务院</td><td>—</td></tr>
+  </table>
+  <p>A06 文件日期 <strong>2026-01-03</strong>，受权发布日期 <strong>2026-02-03</strong>（政府系统受权发布页可查）。完整登记（含日期、官方链接、支撑结论）见 <a href="./source_registry.html">总来源登记表</a>。</p>
+
+  <h2>二、B 类 现实机制转译</h2>
+  <p>写"有助于 / 提升 / 降低"等方向性表述，<strong>不附具体数字</strong>。</p>
+  <ul>
+    <li><span class="type-B">B01</span>：冷链物流通过温控保鲜有助于减少鱼/奶/肉流通损耗（A02）</li>
+    <li><span class="type-B">B02</span>：设施农业（温室）有助于突破季节和气候约束，提高稳定供应能力（A03）</li>
+    <li><span class="type-B">B03</span>：智慧畜禽舍通过环境监测、自动饲喂、健康监测、疫病预警有助于降低疫病风险和损失（A04 + A05）</li>
+    <li><span class="type-B">B04</span>：自动增氧机有助于维持鱼塘溶氧，降低夏季鱼死亡风险（A04 设施渔业方向）</li>
+    <li><span class="type-B">B05</span>：水肥一体化有助于维持温室作物生长（A03 设施农业配套）</li>
+    <li><span class="type-B">B06</span>：低温可能影响露地蔬菜生长和收获（A03 反向支撑，B+C 混合）</li>
+  </ul>
+
+  <h2>三、C 类 游戏化模拟数值（v2 校准后共 13 项）</h2>
+  <p><strong>必须显性标注"游戏化模拟数值，不是现实统计复刻"</strong>。</p>
+
+  <h3>3.1 鲜鱼冷链（C01-C02）</h3>
+  <table>
+    <tr><th>sim_id</th><th>游戏数值</th><th>关联机制</th><th>关联 A</th></tr>
+    <tr><td>C01</td><td>鲜鱼未启用冷链 睡一夜 新鲜度 100→45</td><td>B01 冷链</td><td>A02</td></tr>
+    <tr><td>C02</td><td>鲜鱼启用冷链 睡一夜 新鲜度 100→85</td><td>B01 冷链</td><td>A02</td></tr>
+  </table>
+
+  <h3>3.2 鸡舍稳定率与疫病风险（C03-C06，v2 校准）</h3>
+  <table>
+    <tr><th>sim_id</th><th>游戏数值</th><th>关联机制</th><th>关联 A</th></tr>
+    <tr><td>C03</td><td>普通鸡舍 产蛋稳定率 60%</td><td>B03 智慧畜禽舍</td><td>A04 + A05</td></tr>
+    <tr><td>C04</td><td>智慧鸡舍 产蛋稳定率 85%</td><td>B03 智慧畜禽舍</td><td>A04 + A05</td></tr>
+    <tr><td>C05</td><td>普通鸡舍 疫病风险 20%</td><td>B03 智慧畜禽舍</td><td>A04 + A05</td></tr>
+    <tr><td>C06</td><td>智慧鸡舍 疫病风险 8%</td><td>B03 智慧畜禽舍</td><td>A04 + A05</td></tr>
+  </table>
+  <p><strong>v2 校准说明</strong>：原 v1 把 C03-C06 误接"寒潮青菜 20%/8%"（C05/C06 错位）。v2 严格按 user 反馈：60%/85% 是 普通/智慧鸡舍 产蛋稳定率，20%/8% 是 普通/智慧鸡舍 疫病风险，<strong>不是温室数据</strong>。</p>
+
+  <h3>3.3 行动点与科技成本（C07-C08）</h3>
+  <table>
+    <tr><th>sim_id</th><th>游戏数值</th><th>说明</th></tr>
+    <tr><td>C07</td><td>行动点 4 / 回合</td><td>5 日回合制生存节奏</td></tr>
+    <tr><td>C08</td><td>核心科技解锁成本 统一 2 行动点</td><td>BaseMap.doUnlock 真实代码统一 spendActionPoints(2)，含冷链/温室/智慧鸡舍/增氧机/水肥一体化/价格监测大屏</td></tr>
+  </table>
+
+  <h3>3.4 鱼塘溶氧与存活率（C09-C11）</h3>
+  <table>
+    <tr><th>sim_id</th><th>游戏数值</th><th>关联机制</th></tr>
+    <tr><td>C09</td><td>普通鱼塘溶氧基础 7 mg/L</td><td>B04 增氧机</td></tr>
+    <tr><td>C10</td><td>增氧机启用后 鱼塘溶氧 10+ mg/L</td><td>B04 增氧机</td></tr>
+    <tr><td>C11</td><td>增氧机启用 鱼存活率 +50%</td><td>B04 增氧机</td></tr>
+  </table>
+
+  <h3>3.5 寒潮日青菜获取（C12-C13，v2 新增定性差值）</h3>
+  <table>
+    <tr><th>sim_id</th><th>游戏数值</th><th>关联机制</th><th>说明</th></tr>
+    <tr><td>C12</td><td>寒潮日 露地青菜无法正常收获</td><td>B06 露地低温</td><td>游戏化情境简化（不是所有露地蔬菜在寒潮下绝收）</td></tr>
+    <tr><td>C13</td><td>寒潮日 启用温室后 青菜恢复可收获状态</td><td>B02 设施农业</td><td>游戏化情境简化（不同设施下表现可能不同）</td></tr>
+  </table>
+  <p><strong>v2 重大修正</strong>：原 v1 写过 0% / 100% / ×2 / 20% / 8% / 70% 等具体百分比。v2 改为 C12（无法正常收获）+ C13（恢复可收获状态）的定性差值，不再使用易误导的精确百分比。</p>
+
+  <h2>四、为什么不用强数字</h2>
+  <p>当前公开资料能够支持农业科技作用机制的方向判断（A02/A03/A04/A05），但<strong>不足以为不同地区、品种和生产条件提供统一固定系数</strong>。为避免制造虚假精确性，作品采用显性标注的游戏化模拟参数。</p>
+
+  <h2>五、未登记清单（不允许出现在作品内）</h2>
+  <ul>
+    <li>"192 万吨" / "23 万吨"（强数字，未核验到统一口径原文）</li>
+    <li>"果蔬腐损率 30% / 肉类 12% / 水产品 15%"（未核验到统一口径原文）</li>
+    <li>"发达国家冷链流通率 100% / 95%"（未核验到统一口径原文）</li>
+    <li>"中国冷链流通率 果蔬 5% / 肉类 15% / 水产品 23%"（未核验到统一口径原文）</li>
+    <li>"菠菜 -6℃ / 蒜苗 -5℃ / 香菜 -10℃"（未核验到统一口径原文）</li>
+    <li>"江苏新沂" / "山西夏县" / "增收 10 万元"（缺一手来源 + 案例授权）</li>
+    <li>"中国 14 亿多人口"（强叙事，作品不写）</li>
+    <li>"中国是世界第一"（强叙事，不写）</li>
+    <li>"冷链市场规模 5170 亿元" / "设施农业 4000 万亩"（强数字，未核验到一致口径）</li>
+    <li>"前瞻产业研究院" / "西南证券研报" / "农业知识科普"（二手来源，不作为事实来源登记）</li>
+    <li>"V2 3 日 Demo" / "科技菜篮子·四季生存"（旧项目定位）</li>
+    <li>"菜市场" / "邻居借菜" / "菜价翻倍" / "Day 7" / "北上广"（与本作品叙事不符）</li>
+    <li><strong>"鲜度 4-5 倍/3-5 倍" "0-4℃/0-8℃" "15-28℃" "产蛋 +30%/+50%" "损耗低 70%" "鲜度 5 倍" "常温 2 小时酸败" "流通腐损率 12%/15%/5%"</strong>（v2 起改为 sim_id 显性差值）</li>
+  </ul>
+
+  <div class="nav">
+    <a href="./fact_check.html">数据来源与事实核验表</a>
+    <a href="./gameplay_parameters.html">游戏数值转译说明</a>
+    <a href="./source_registry.html">总来源登记表</a>
+    <span class="badge badge-v2">v2 事实体系统一版</span>
+  </div>
+
+</body>
+</html>
