@@ -149,6 +149,7 @@ onBeforeUnmount(() => {
   -webkit-backdrop-filter: blur(0px);
   pointer-events: none;
   opacity: 0;
+  visibility: hidden;
   transition:
     background 0.32s ease,
     backdrop-filter 0.32s ease,
@@ -162,6 +163,7 @@ onBeforeUnmount(() => {
   -webkit-backdrop-filter: blur(8px);
   pointer-events: auto;
   opacity: 1;
+  visibility: visible;
 }
 
 /* ── 弹窗主体 ──────────────────────────────────────────────── */
@@ -181,7 +183,7 @@ onBeforeUnmount(() => {
   box-shadow:
     0 28px 90px rgba(0,0,0,0.65),
     inset 0 0 40px rgba(143,47,37,0.06);
-  pointer-events: auto;
+  pointer-events: none;
   overflow: hidden;
   transform: scale(0.95) translateY(8px);
   transition: transform 0.32s cubic-bezier(0.16,1,0.3,1);
@@ -207,6 +209,7 @@ onBeforeUnmount(() => {
 
 .fab-layer.fab-visible .fab-modal {
   transform: scale(1) translateY(0);
+  pointer-events: auto;
 }
 
 /* ── 右上角关闭按钮 ────────────────────────────────────────── */
