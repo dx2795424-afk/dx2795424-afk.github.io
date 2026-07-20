@@ -244,8 +244,8 @@ function clickProp(prop) {
 /* 苏轼立绘 — 透明 PNG 自然融合密州场景 */
 .su-figure {
   position: absolute;
-  left: 54%;
-  bottom: 190px;
+  left: 58%;
+  bottom: clamp(100px, 14vh, 150px);
   z-index: 5;
   opacity: 0;
   transform: translateY(30px);
@@ -260,9 +260,9 @@ function clickProp(prop) {
 .su-figure.visible { opacity: 1; transform: translateY(0); }
 .su-figure::before { display: none; }
 .su-portrait {
-  width: min(480px, 55vw);
-  height: auto;
-  max-width: none;
+  width: auto;
+  height: clamp(280px, 52vh, 520px);
+  max-width: min(34vw, 440px);
   object-fit: contain;
   background-color: transparent;
   border-radius: 0;
@@ -273,6 +273,18 @@ function clickProp(prop) {
   mix-blend-mode: multiply;
   opacity: 0.88;
   transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+@media (max-width: 700px) {
+  .su-figure {
+    left: 46%;
+    bottom: 96px;
+  }
+
+  .su-portrait {
+    height: min(44vh, 360px);
+    max-width: 52vw;
+  }
 }
 .su-figure:hover .su-portrait {
   transform: scale(1.02);
