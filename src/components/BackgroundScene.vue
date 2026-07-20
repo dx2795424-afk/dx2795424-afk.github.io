@@ -365,7 +365,9 @@ const themeImage = computed(() => THEME_IMAGES[props.theme] || null)
 /* ---- INTRO ---- */
 .intro-cg { position: relative; width: 100%; height: 100%; }
 .intro-cg .bg-paper {
-  background: radial-gradient(ellipse at 50% 50%, #1a1a24 0%, #0d0d15 60%);
+  background:
+    radial-gradient(ellipse at 50% 44%, rgba(198, 151, 88, 0.12) 0%, transparent 46%),
+    linear-gradient(180deg, rgba(13, 12, 16, 0.14) 0%, rgba(11, 9, 14, 0.28) 100%) !important;
 }
 .intro-ink-flow {
   position: absolute;

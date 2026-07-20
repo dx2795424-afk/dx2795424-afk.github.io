@@ -85,6 +85,7 @@ function handleNext() {
   align-items: center;
   justify-content: center;
   background: transparent;
+  z-index: 2;
 }
 
 .book-animation {
@@ -139,7 +140,14 @@ function handleNext() {
 
 .intro-content {
   text-align: center;
-  max-width: 320px;
+  width: min(90vw, 520px);
+  max-width: 520px;
+  padding: 1.5rem 2rem 1.75rem;
+  border: 1px solid rgba(232, 215, 184, 0.22);
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(38, 31, 27, 0.58), rgba(20, 18, 19, 0.68));
+  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.28), inset 0 1px rgba(255, 244, 220, 0.08);
+  backdrop-filter: blur(3px);
   opacity: 0;
   transform: translateY(20px);
   transition: all 0.6s ease;
@@ -153,7 +161,8 @@ function handleNext() {
 .book-title {
   font-family: var(--font-serif);
   font-size: 1.5rem;
-  color: var(--moon-white);
+  color: #fff8e9;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.75);
   margin-bottom: 1rem;
   letter-spacing: 0.1em;
 }
@@ -173,23 +182,35 @@ function handleNext() {
   margin: 0 0.5rem;
 }
 
-.narrator-box {
-  background: rgba(61, 79, 95, 0.3);
+.intro-narration {
+  background: rgba(20, 17, 18, 0.46);
   border-left: 2px solid var(--vermillion);
   padding: 1rem;
   margin-bottom: 2rem;
   text-align: left;
 }
 
-.narrator-text {
+.intro-narration-text {
   font-family: var(--font-serif);
-  font-size: 0.9375rem;
+  font-size: 1rem;
   line-height: 1.8;
-  color: rgba(232, 228, 223, 0.9);
+  color: #fffaf0;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.8);
   min-height: 4.5em;
 }
 
 .btn-primary {
   min-width: 160px;
+  color: #fff8ea;
+  background: #8f2f32;
+  border-color: rgba(255, 224, 190, 0.35);
+  box-shadow: 0 8px 22px rgba(44, 8, 10, 0.35);
+}
+
+@media (max-width: 640px) {
+  .intro-content {
+    width: min(92vw, 420px);
+    padding: 1.25rem 1.15rem 1.4rem;
+  }
 }
 </style>
