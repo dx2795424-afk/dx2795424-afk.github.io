@@ -3,20 +3,21 @@
     <div class="chapter-mark">第五幕 · 黄州 · 东坡初成</div>
     <div class="scene-title-vn">东坡初成</div>
     <div class="stove-visual">
-      <svg width="160" height="120" viewBox="0 0 160 120">
-        <ellipse cx="80" cy="100" rx="70" ry="18" fill="rgba(58,48,32,0.8)"/>
-        <rect x="20" y="70" width="120" height="32" fill="rgba(74,56,40,0.9)" rx="6"/>
-        <ellipse cx="80" cy="70" rx="60" ry="14" fill="rgba(30,24,16,0.95)"/>
-        <g class="flame-dongpo">
-          <ellipse cx="80" cy="55" rx="22" ry="30" fill="rgba(196,122,48,0.5)"/>
-          <ellipse cx="72" cy="50" rx="14" ry="22" fill="rgba(212,146,58,0.5)"/>
-          <ellipse cx="88" cy="53" rx="12" ry="18" fill="rgba(224,168,74,0.4)"/>
-          <ellipse cx="80" cy="42" rx="8" ry="14" fill="rgba(240,192,96,0.3)"/>
-        </g>
-        <g opacity="0.25" class="steam-dongpo">
-          <ellipse cx="70" cy="25" rx="16" ry="8" fill="rgba(216,208,192,0.6)"/>
-          <ellipse cx="90" cy="15" rx="12" ry="7" fill="rgba(216,208,192,0.5)"/>
-        </g>
+      <svg width="220" height="180" viewBox="0 0 220 180" aria-label="夜色中的陶炉火光" role="img">
+        <defs>
+          <radialGradient id="dongpo-fire-glow"><stop offset="0" stop-color="#ffd27a" stop-opacity=".46"/><stop offset=".42" stop-color="#d9792d" stop-opacity=".18"/><stop offset="1" stop-color="#9d431f" stop-opacity="0"/></radialGradient>
+          <linearGradient id="dongpo-stove-body" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#71513a"/><stop offset=".48" stop-color="#493327"/><stop offset="1" stop-color="#241b18"/></linearGradient>
+          <linearGradient id="dongpo-flame" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#b83e18"/><stop offset=".48" stop-color="#ef8d2f"/><stop offset="1" stop-color="#ffe2a0"/></linearGradient>
+        </defs>
+        <ellipse class="fire-aura" cx="110" cy="82" rx="90" ry="78" fill="url(#dongpo-fire-glow)"/>
+        <ellipse cx="110" cy="159" rx="69" ry="12" fill="#050404" opacity=".5"/>
+        <path d="M47 111 Q110 96 173 111 L162 151 Q110 169 58 151 Z" fill="url(#dongpo-stove-body)" stroke="#8e6848" stroke-width="2"/>
+        <path d="M59 128 Q110 139 161 128" fill="none" stroke="#9a7250" stroke-opacity=".5" stroke-width="2"/>
+        <ellipse cx="110" cy="110" rx="64" ry="18" fill="#281913" stroke="#9a7250" stroke-width="3"/>
+        <ellipse cx="110" cy="108" rx="52" ry="12" fill="#110c0a"/>
+        <g class="coals-dongpo"><ellipse cx="88" cy="108" rx="13" ry="6" fill="#8e2d18"/><ellipse cx="111" cy="105" rx="15" ry="7" fill="#bc4720"/><ellipse cx="136" cy="109" rx="12" ry="6" fill="#6f2417"/><path d="M79 107h18M102 104h18M129 108h14" stroke="#ffb052" stroke-width="1.5" opacity=".72"/></g>
+        <g class="flame-dongpo"><path d="M110 105 C83 88 92 65 105 47 C105 67 119 65 116 34 C142 63 142 89 110 105Z" fill="url(#dongpo-flame)"/><path d="M111 101 C98 89 103 76 112 62 C113 76 123 79 118 92 C117 97 114 100 111 101Z" fill="#fff0b8" opacity=".92"/></g>
+        <g class="smoke-dongpo" fill="none" stroke="#d8d0c0" stroke-linecap="round"><path d="M102 48 C91 34 108 26 99 12" stroke-width="5" opacity=".13"/><path d="M124 45 C135 30 119 22 130 8" stroke-width="4" opacity=".1"/></g>
       </svg>
     </div>
     <div class="dialogue-layer">
@@ -69,7 +70,7 @@ function handleNext() {
 onMounted(() => { showD1.value = true })
 </script>
 <style scoped>
-.vn-scene { position: relative; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; padding: 60px 20px 200px; overflow: hidden; pointer-events: none; }
+.vn-scene { position: relative; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; padding: 132px 20px 200px; overflow: hidden; pointer-events: none; }
 .vn-scene > * { pointer-events: auto; }
 .chapter-badge { position: fixed; top: 60px; left: 16px; z-index: 40; padding: 5px 14px; background: rgba(13,13,18,0.92); border: 1px solid rgba(184,149,108,0.45); border-radius: 20px; font-family: var(--font-sans); font-size: 0.72rem; color: rgba(245,232,200,0.95); font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; backdrop-filter: blur(4px); box-shadow: 0 2px 8px rgba(0,0,0,0.5), 0 0 12px rgba(184,149,108,0.15); }
 .scene-title-vn {
@@ -85,12 +86,16 @@ onMounted(() => { showD1.value = true })
   position: relative;
   z-index: 5;
 }
-.stove-visual { margin: 12px 0; }
-.flame-dongpo { animation: flame-move-d 2s ease-in-out infinite alternate; transform-origin: center bottom; }
-@keyframes flame-move-d { 0% { transform: scaleY(1) translateY(0); } 100% { transform: scaleY(1.15) translateY(-4px); } }
-.steam-dongpo { animation: steam-rise-d 3s ease-out infinite; }
-.steam-dongpo ellipse:nth-child(2) { animation-delay: 0.5s; }
-@keyframes steam-rise-d { 0% { transform: translateY(0) scale(1); opacity: 0.25; } 100% { transform: translateY(-30px) scale(1.4); opacity: 0; } }
+.stove-visual { margin: 10px 0; filter: drop-shadow(0 12px 16px rgba(0,0,0,.5)); }
+.flame-dongpo { animation: flame-move-d .9s ease-in-out infinite alternate; transform-origin: 110px 104px; }
+.fire-aura { animation: aura-pulse-d 1.8s ease-in-out infinite alternate; transform-origin: center; }
+.coals-dongpo { animation: coal-pulse-d 1.35s ease-in-out infinite alternate; }
+.smoke-dongpo { animation: smoke-rise-d 3.2s ease-out infinite; }
+@keyframes flame-move-d { 0% { transform: scale(.96, 1) rotate(-1deg); } 100% { transform: scale(1.04, 1.08) rotate(1.5deg); } }
+@keyframes aura-pulse-d { from { opacity: .72; transform: scale(.96); } to { opacity: 1; transform: scale(1.04); } }
+@keyframes coal-pulse-d { from { opacity: .72; } to { opacity: 1; } }
+@keyframes smoke-rise-d { 0% { transform: translateY(7px); opacity: 0; } 25% { opacity: .7; } 100% { transform: translateY(-22px); opacity: 0; } }
+@media (max-height: 760px) { .vn-scene { padding-top: 112px; } .stove-visual { transform: scale(.82); margin: -4px 0 -14px; } }
 .dialogue-layer { position: fixed; left: 0; right: 0; bottom: 0; }
 .vn-next-btn { position: fixed; bottom: 220px; right: 20px; display: inline-flex; align-items: center; gap: 6px; padding: 10px 18px; background: rgba(20,18,14,0.85); border: 1px solid rgba(184,149,108,0.35); border-radius: 20px; color: rgba(200,190,170,0.85); font-family: var(--font-sans); font-size: 0.85rem; cursor: pointer; z-index: 90; backdrop-filter: blur(4px); animation: btn-fade-in 0.4s cubic-bezier(0.16,1,0.3,1); box-shadow: 0 4px 12px rgba(0,0,0,0.25); transition: all 0.2s; }
 .vn-next-btn:hover { background: rgba(30,28,24,0.9); border-color: rgba(184,149,108,0.55); color: rgba(220,210,190,0.95); transform: translateY(-1px); }
