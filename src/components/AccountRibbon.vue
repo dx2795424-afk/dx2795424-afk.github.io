@@ -82,6 +82,11 @@ const ACCOUNT_META = [
     color: 'var(--light-terracotta, #c4a77d)'
   },
   {
+    key: 'minsheng', label: '民生', danger: false, warning: false,
+    description: '民生账：治理选择是否照见百姓处境',
+    color: '#6f8f5f'
+  },
+  {
     key: 'qinyou', label: '亲友', danger: true, warning: false,
     description: '亲友账：亲友承担的代价，越高越危险',
     color: 'var(--vermillion, #8b3a3a)'
@@ -127,7 +132,7 @@ watch(() => ({ ...gameState.variables }), (newVars) => {
         key: a.key,
         delta,
         label: a.label,
-        color: a.delta > 0 ? '#7ab85a' : '#d65a3a'
+        color: delta > 0 ? '#7ab85a' : '#d65a3a'
       })
     }
   }
@@ -159,7 +164,7 @@ watch(() => ({ ...gameState.variables }), (newVars) => {
   left: 0;
   right: 0;
   z-index: 50;
-  padding: 8px 12px;
+  padding: calc(8px + env(safe-area-inset-top, 0px)) 12px 8px;
   background: linear-gradient(180deg, rgba(13,13,18,0.95) 0%, rgba(13,13,18,0.85) 100%);
   border-bottom: 1px solid rgba(184,149,108,0.15);
   backdrop-filter: blur(8px);
@@ -324,4 +329,60 @@ watch(() => ({ ...gameState.variables }), (newVars) => {
 
 .annotation-pop-enter-active { transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
 .annotation-pop-enter-from { opacity: 0; transform: translateX(-10px); }
+
+@media (max-width: 700px) {
+  .account-ribbon {
+    padding: calc(6px + env(safe-area-inset-top, 0px)) 122px 7px 12px;
+  }
+
+  .ribbon-inner {
+    align-items: stretch;
+  }
+
+  .ribbon-label {
+    display: none;
+  }
+
+  .accounts {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 5px 8px;
+    overflow: visible;
+  }
+
+  .account-item {
+    min-width: 0;
+    gap: 1px;
+    padding: 2px 1px;
+  }
+
+  .account-name {
+    font-size: 0.62rem;
+  }
+
+  .account-val {
+    font-size: 0.68rem;
+    line-height: 1;
+  }
+
+  .account-bar {
+    width: 100%;
+    height: 4px;
+  }
+
+  .floaters-layer {
+    top: calc(100% + 3px);
+    max-width: calc(100vw - 24px);
+  }
+}
+
+@media (max-width: 380px) {
+  .account-ribbon {
+    padding-right: 112px;
+  }
+
+  .accounts {
+    gap: 4px 6px;
+  }
+}
 </style>

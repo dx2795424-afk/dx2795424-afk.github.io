@@ -81,7 +81,7 @@
                 <span class="chip-label">{{ change.shortLabel }}</span>
               </span>
               <span v-if="choice.warning" class="feedback-warning-inline">
-                ⚠️ {{ choice.warning }}
+                注意：{{ choice.warning }}
               </span>
             </div>
           </div>
@@ -113,7 +113,7 @@
                 <span class="chip-label">{{ change.shortLabel }}</span>
               </span>
               <span v-if="selectedChoice.warning" class="feedback-warning">
-                ⚠️ {{ selectedChoice.warning }}
+                注意：{{ selectedChoice.warning }}
               </span>
             </div>
 
@@ -237,7 +237,7 @@ watch(() => props.visible, (v) => {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 18px 80px;
+  padding: 0 18px calc(150px + env(safe-area-inset-bottom, 0px));
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   pointer-events: auto;
@@ -341,6 +341,7 @@ watch(() => props.visible, (v) => {
   flex-direction: column;
   gap: 12px;
   flex: 1;
+  padding-bottom: 18px;
 }
 
 .choice-paper {
@@ -551,7 +552,7 @@ watch(() => props.visible, (v) => {
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 0 18px 28px;
+  padding: 0 18px calc(18px + env(safe-area-inset-bottom, 0px));
   z-index: 210;
   pointer-events: auto;
 }
@@ -563,6 +564,7 @@ watch(() => props.visible, (v) => {
   padding: 18px 22px 20px;
   max-width: 480px;
   margin: 0 auto;
+  box-shadow: 0 -10px 38px rgba(0,0,0,0.44);
 }
 
 /* 反馈内的预测变化 chips */
@@ -725,5 +727,164 @@ watch(() => props.visible, (v) => {
 .feedback-reveal-enter-from {
   opacity: 0;
   transform: translateY(24px);
+}
+
+@media (max-width: 700px) {
+  .choice-overlay {
+    align-items: stretch;
+    padding: calc(54px + env(safe-area-inset-top, 0px)) 12px calc(210px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .overlay-topbar {
+    position: fixed;
+    top: calc(6px + env(safe-area-inset-top, 0px));
+    left: 12px;
+    right: 122px;
+    width: auto;
+    max-width: none;
+    z-index: 3;
+    padding: 0;
+  }
+
+  .back-btn {
+    min-width: 58px;
+    min-height: 38px;
+    padding: 6px 10px;
+    border-radius: 10px;
+    background: rgba(18, 16, 12, 0.72);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .overlay-scene-label {
+    align-self: center;
+    font-size: 0.66rem;
+  }
+
+  .choice-question-scroll,
+  .choices-list {
+    max-width: none;
+  }
+
+  .choice-question-scroll {
+    margin-bottom: 12px;
+    padding: 14px 16px 13px;
+    border-radius: 14px;
+  }
+
+  .question-title {
+    font-size: 18px;
+    line-height: 1.35;
+  }
+
+  .question-hint {
+    font-size: 0.84rem;
+    line-height: 1.5;
+  }
+
+  .choices-list {
+    gap: 10px;
+  }
+
+  .choice-paper {
+    border-radius: 13px;
+    min-height: 112px;
+  }
+
+  .paper-content {
+    padding: 12px 42px 12px 12px;
+    gap: 4px;
+  }
+
+  .choice-text {
+    font-size: 0.93rem;
+    line-height: 1.55;
+  }
+
+  .choice-warning {
+    font-size: 0.82rem;
+    line-height: 1.45;
+  }
+
+  .choice-chips {
+    gap: 4px;
+    margin-top: 5px;
+    padding: 6px 7px;
+  }
+
+  .choice-chip {
+    padding: 2px 6px;
+    font-size: 0.68rem;
+  }
+
+  .seal-stamp {
+    right: 10px;
+    width: 32px;
+    height: 32px;
+    font-size: 0.92rem;
+  }
+
+  .feedback-panel {
+    padding: 0 12px calc(12px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .feedback-inner {
+    padding: 12px 14px 14px;
+    border-radius: 14px;
+  }
+
+  .feedback-changes {
+    gap: 5px;
+    margin-bottom: 9px;
+    padding: 6px 8px;
+  }
+
+  .feedback-text {
+    font-size: 0.9rem;
+    line-height: 1.65;
+    margin-bottom: 10px;
+  }
+
+  .btn-continue {
+    min-height: 46px;
+    padding: 10px 14px;
+  }
+
+  .confirmed-mark {
+    margin-top: 7px;
+  }
+
+  .confirmed-seal {
+    width: 36px;
+    height: 36px;
+    font-size: 0.94rem;
+  }
+
+  .confirmed-hint {
+    font-size: 0.78rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .choice-overlay {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .choice-paper {
+    min-height: 104px;
+  }
+
+  .paper-content {
+    padding-right: 38px;
+  }
+
+  .choice-text {
+    font-size: 0.88rem;
+  }
+
+  .feedback-text {
+    font-size: 0.86rem;
+  }
 }
 </style>

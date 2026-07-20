@@ -261,6 +261,10 @@ export function toggleAudio() {
   gameState.audioEnabled = !gameState.audioEnabled
 }
 
+export function setAudioEnabled(enabled) {
+  gameState.audioEnabled = !!enabled
+}
+
 // ─── Archive Wall / Chapter Transition ─────────────────────────────────────────
 
 export function showArchiveWall({ mode = 'opening', chapter = 'meishan', narrate = '' } = {}) {

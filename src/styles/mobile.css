@@ -58,21 +58,16 @@
   }
 }
 
-/* Landscape phone - prevent accidental touches */
+/* Landscape phone */
 @media screen and (max-height: 500px) and (orientation: landscape) {
   html, body {
-    transform: rotate(90deg);
-    transform-origin: left top;
-    width: 100vh;
-    height: 100vw;
-    position: absolute;
-    top: 100%;
-    left: 0;
+    width: 100%;
+    height: 100%;
   }
 
   #app {
-    width: 100vh;
-    height: 100vw;
+    width: 100%;
+    height: 100%;
   }
 }
 

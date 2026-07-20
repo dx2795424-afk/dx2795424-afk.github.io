@@ -40,7 +40,7 @@
   }
 
   .overlay-topbar {
-    padding: 8px 4px;
+    padding: 0;
   }
 
   .back-btn {
@@ -122,18 +122,18 @@
     flex-direction: row !important;
     flex-wrap: wrap !important;
     justify-content: space-between;
-    gap: 6px;
+    gap: 8px;
   }
 
   .choice-paper {
-    flex: 0 0 calc(50% - 6px) !important;
+    flex: 0 0 calc(50% - 8px) !important;
     box-sizing: border-box;
-    padding: 10px 12px;
+    min-height: 92px !important;
   }
 
   /* Compact topbar + back button so the choice list gets the room */
   .overlay-topbar {
-    padding: 4px 6px;
+    padding: 0;
     min-height: 36px;
   }
 

@@ -120,7 +120,7 @@ onUnmounted(() => {
   position: fixed;
   left: 16px;
   right: 16px;
-  bottom: 60px;
+  bottom: calc(44px + env(safe-area-inset-bottom, 0px));
   min-height: 160px;
   background:
     linear-gradient(135deg, rgba(242,235,216,0.62) 0%, rgba(236,228,208,0.65) 100%),
@@ -241,6 +241,34 @@ onUnmounted(() => {
 @keyframes bounce-arrow {
   0%, 100% { transform: translateY(0); opacity: 0.5; }
   50% { transform: translateY(3px); opacity: 1; }
+}
+
+@media (max-width: 700px) {
+  .dialogue-box {
+    left: 12px;
+    right: 12px;
+    bottom: calc(28px + env(safe-area-inset-bottom, 0px));
+    min-height: 118px;
+    padding: 14px 16px 12px;
+    border-radius: 14px;
+  }
+
+  .dialogue-text-wrap {
+    min-height: 58px;
+    padding-top: 4px;
+  }
+
+  .dialogue-text {
+    font-size: 15px;
+    line-height: 1.72;
+    letter-spacing: 0.02em;
+  }
+
+  .speaker-tag {
+    top: -12px;
+    left: 16px;
+    font-size: 0.72rem;
+  }
 }
 
 /* 动画 */

@@ -7,7 +7,7 @@
     <AccountRibbon v-if="gameState.gameStarted" />
 
     <!-- 全局对话日志 -->
-    <DialogueLog ref="dialogueLogRef" />
+    <DialogueLog v-if="gameState.gameStarted" ref="dialogueLogRef" />
 
     <!-- 场景切换 -->
       <!-- HomeScreen: shown when game hasn't started, or when on S01 -->
@@ -69,6 +69,7 @@ import AudioToggle from './components/AudioToggle.vue'
 import DialogueLog from './components/DialogueLog.vue'
 import LayeredArchiveWall from './components/LayeredArchiveWall.vue'
 import ChapterTransitionWall from './components/ChapterTransitionWall.vue'
+import { useSceneAudio } from './composables/useSceneAudio.js'
 
 const dialogueLogRef = ref(null)
 
@@ -77,7 +78,7 @@ provide('dialogueLogRef', dialogueLogRef)
 
 // Scene atmosphere mapping
 const atmosphereMap = {
-  S00: 'loading',
+  S00: 'home',
   S01: 'home',
   S02: 'intro',
   S10: 'meishan',
@@ -119,6 +120,8 @@ const atmosphereMap = {
 }
 
 const currentAtmosphere = computed(() => atmosphereMap[gameState.currentScene] || 'home')
+
+useSceneAudio(gameState, currentAtmosphere)
 
 // Scene component mapping
 const sceneComponents = {
@@ -321,6 +324,7 @@ onMounted(() => {
 @import './styles/theme.css';
 @import './styles/mobile.css';
 @import './styles/animations.css';
+@import './styles/responsive.css';
 
 /* Scene transitions */
 .scene-enter-active,
