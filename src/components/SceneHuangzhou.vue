@@ -10,7 +10,7 @@
       <!-- V0.3: 渔翁立绘（黄州赤壁垂钓，左侧，与苏轼共存） -->
       <img
         class="dp-character dp-character--left is-visible"
-        src="/assets/dongpo/characters/char_fisherman.png"
+        src="/assets/dongpo/characters/char_fisherman_cutout.png"
         alt="黄州渔翁"
         draggable="false"
       />
@@ -23,7 +23,7 @@
       <!-- 苏轼上岸立绘（黄州专属形象） -->
       <div class="su-figure" :class="{ visible: figureVisible }">
         <img
-          src="/assets/dongpo/characters/char_sushi_huangzhou.png"
+          src="/assets/dongpo/characters/char_sushi_huangzhou_cutout.png"
           alt="黄州苏轼"
           class="su-portrait"
           draggable="false"

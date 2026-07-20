@@ -17,7 +17,7 @@
     <!-- V0.3: 船夫（贬谪坐船，乌台之后） -->
     <img
       class="dp-character is-visible"
-      src="/assets/dongpo/characters/char_boatman.png"
+      src="/assets/dongpo/characters/char_boatman_cutout.png"
       alt="船夫"
       draggable="false"
     />

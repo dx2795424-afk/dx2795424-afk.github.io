@@ -19,7 +19,7 @@
       <!-- 苏轼立绘 -->
       <div class="su-figure" :class="{ visible: figureVisible }" @click.stop="handleFigureClick">
         <img
-          src="/assets/dongpo/characters/char_sushi_adult.png"
+          src="/assets/dongpo/characters/char_sushi_adult_cutout.png"
           alt="苏轼"
           class="su-portrait"
           draggable="false"
