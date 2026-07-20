@@ -199,8 +199,8 @@ function handleRetrospective() {
   width: 100%;
   max-width: 440px;
   background:
-    linear-gradient(135deg, rgba(242,235,216,0.95) 0%, rgba(234,226,206,0.97) 100%);
-  border: 1px solid rgba(184,149,108,0.3);
+    linear-gradient(135deg, #fff8e8 0%, #eee0c3 100%);
+  border: 1px solid rgba(126,88,42,0.55);
   border-radius: 16px;
   padding: 24px 20px;
   box-shadow:
@@ -258,7 +258,7 @@ function handleRetrospective() {
 .verdict-title {
   font-family: var(--font-serif);
   font-size: 1.3rem;
-  color: #2a241c;
+  color: #17120d;
   letter-spacing: 0.08em;
   font-weight: 600;
 }
@@ -277,7 +277,8 @@ function handleRetrospective() {
 .verdict-line {
   font-family: var(--font-serif);
   font-size: 0.95rem;
-  color: #3a3428;
+  color: #211a12;
+  font-weight: 600;
   line-height: 1.8;
   text-align: justify;
   letter-spacing: 0.02em;
@@ -413,10 +414,10 @@ function handleRetrospective() {
 .btn-restart {
   width: 100%;
   padding: 12px 20px;
-  background: transparent;
-  border: 1px solid rgba(184,149,108,0.35);
+  background: rgba(18,16,14,0.88);
+  border: 1px solid rgba(218,186,132,0.62);
   border-radius: 10px;
-  color: rgba(200,190,170,0.75);
+  color: #f3e5c8;
   font-family: var(--font-sans);
   font-size: 0.9rem;
   cursor: pointer;
@@ -429,14 +430,15 @@ function handleRetrospective() {
 }
 
 .btn-credits {
-  background: none;
-  border: none;
-  color: rgba(200,190,170,0.4);
+  background: rgba(13,13,18,0.68);
+  border: 1px solid rgba(184,149,108,0.32);
+  border-radius: 8px;
+  color: rgba(240,222,188,0.86);
   font-family: var(--font-sans);
   font-size: 0.78rem;
   cursor: pointer;
   letter-spacing: 0.05em;
-  padding: 6px;
+  padding: 9px 16px;
   transition: color 0.2s;
 }
 .btn-credits:hover { color: rgba(200,190,170,0.65); }
@@ -444,10 +446,10 @@ function handleRetrospective() {
 .btn-retro {
   width: 100%;
   padding: 12px 20px;
-  background: transparent;
-  border: 1px solid rgba(184,149,108,0.25);
+  background: rgba(13,13,18,0.76);
+  border: 1px solid rgba(184,149,108,0.48);
   border-radius: 10px;
-  color: rgba(200,190,170,0.55);
+  color: rgba(240,222,188,0.92);
   font-family: var(--font-sans);
   font-size: 0.85rem;
   cursor: pointer;

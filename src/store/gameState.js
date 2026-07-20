@@ -74,6 +74,7 @@ function getDefaultState() {
     showChapterTransition: false,
     transitionFrom: '',            // previous chapter key
     transitionTo: '',              // next chapter key
+    transitionTargetScene: '',     // exact scene to enter after transition
     // Current game chapter (for progress tracking)
     currentChapter: 'meishan',
   }
@@ -101,6 +102,7 @@ function initState() {
       showChapterTransition: false,
       transitionFrom: '',
       transitionTo: '',
+      transitionTargetScene: '',
       currentChapter: savedState.currentChapter || 'meishan',
       variables: { ...defaultState.variables, ...(savedState.variables || {}) },
       flags: { ...DEFAULT_FLAGS, ...(savedState.flags || {}) }
@@ -278,10 +280,11 @@ export function hideArchiveWall() {
   gameState.showArchiveWall = false
 }
 
-export function showChapterTransition(fromChapter, toChapter) {
+export function showChapterTransition(fromChapter, toChapter, targetScene = '') {
   gameState.showChapterTransition = true
   gameState.transitionFrom = fromChapter
   gameState.transitionTo = toChapter
+  gameState.transitionTargetScene = targetScene
 }
 
 export function hideChapterTransition() {

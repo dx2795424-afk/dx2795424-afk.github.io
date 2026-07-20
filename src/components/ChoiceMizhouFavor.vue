@@ -109,9 +109,10 @@ function handleContinue() {
   addLogEntry({ type: 'system', sceneId: 'S29', content: '密州三选择完成，触发章节转场：第三幕→第四幕（乌台风暴）' })
   // Trigger chapter transition from 密州 to 乌台
   if (openChapterTransition) {
-    openChapterTransition('mizhou', 'wutai')
+    openChapterTransition('mizhou', 'wutai', 'S30')
+  } else {
+    setScene('S30')
   }
-  setScene('S30')
 }
 </script>
 

@@ -125,7 +125,7 @@ function onAllDone() {
 
 function handleNext() {
   if (openChapterTransition) {
-    openChapterTransition('meishan', 'capital')
+    openChapterTransition('meishan', 'capital', 'S20')
   } else {
     setScene('S20')
   }

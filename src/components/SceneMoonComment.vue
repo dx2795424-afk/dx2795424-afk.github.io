@@ -78,9 +78,10 @@ function handleNext() {
   // 与 SceneDongpo / SceneWutaiBridge 一致：先弹出章节转场墙，再由 setScene 真正切场。
   // App.vue 会在 currentScene 变化时自动 closeAllOverlays()，把转场墙一并收起。
   if (openChapterTransition) {
-    openChapterTransition('chengtian', 'hangzhou')
+    openChapterTransition('chengtian', 'hangzhou', 'S44')
+  } else {
+    setScene('S44')
   }
-  setScene('S44')  // 第六幕：再入杭州
 }
 onMounted(() => { showD1.value = true })
 </script>

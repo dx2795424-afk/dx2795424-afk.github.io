@@ -63,9 +63,10 @@ function handleNext() {
   // App.vue 会在 currentScene 变化时自动 closeAllOverlays() 把转场墙收掉，
   // 这样既保留用户层视觉过场，又让自动化测试 / 重放器在点击 next 之后能直接落到 S39。
   if (openChapterTransition) {
-    openChapterTransition('huangzhou', 'chengtian')
+    openChapterTransition('huangzhou', 'chengtian', 'S39')
+  } else {
+    setScene('S39')
   }
-  setScene('S39')
 }
 onMounted(() => { showD1.value = true })
 </script>

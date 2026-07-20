@@ -84,9 +84,10 @@ function handleNext() {
   addLogEntry({ type: 'system', sceneId: 'S30', content: '乌台风暴开始，乌台诗案正式展开' })
   // Trigger chapter transition (already showing 乌台 from atmosphere)
   if (openChapterTransition) {
-    openChapterTransition('mizhou', 'wutai')
+    openChapterTransition('wutai', 'huangzhou', 'S34')
+  } else {
+    setScene('S34')
   }
-  setScene('S34')  // 黄州靠岸
 }
 </script>
 

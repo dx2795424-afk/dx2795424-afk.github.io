@@ -240,9 +240,15 @@ function handleArchiveWallBack() {
 
 // ─── Chapter Transition handlers ─────────────────────────────────────────────
 function handleTransitionContinue() {
-  hideChapterTransition()
-  // Navigate to the next scene based on transition target
+  const targetScene = gameState.transitionTargetScene
   const to = gameState.transitionTo
+  hideChapterTransition()
+  gameState.transitionTargetScene = ''
+  if (targetScene) {
+    setScene(targetScene)
+    return
+  }
+  // Navigate to the next scene based on transition target
   if (to === 'capital') {
     setScene('S20')
   } else if (to === 'mizhou') {
@@ -265,7 +271,7 @@ function handleTransitionContinue() {
 // Public API: expose archive wall open functions to child components via inject
 // Provide the FUNCTION (not the ref) so child components can call it directly
 provide('openArchiveWall', (opts) => showArchiveWall(opts))
-provide('openChapterTransition', (from, to) => showChapterTransition(from, to))
+provide('openChapterTransition', (from, to, targetScene = '') => showChapterTransition(from, to, targetScene))
 provide('hideArchiveWall', hideArchiveWall)
 provide('hideChapterTransition', hideChapterTransition)
 
